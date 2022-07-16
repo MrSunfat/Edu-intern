@@ -1,0 +1,43 @@
+.btn-style-three > .btn-main {
+    padding: 0 12px;
+    background-color: var(--main-bg-btn);
+    color: #fff;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-style-three > .btn-main:hover {
+    background-color: var(--main-bg-hover-btn);
+}
+
+.btn-style-three > .btn-main.disable {
+    background-color: var(--bg-btn-stye-disable);
+    color: var(--text-disable-color);
+    cursor: not-allowed;
+}
+
+.btn-style-three > .selector {
+    padding: 0 12px;
+    background-color: var(--selector-bg);
+    color: #fff;
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    min-width: 0;
+}
+
+.btn-style-three > .selector:hover {
+    background-color: var(--selector-bg-hover);
+}
+
+.btn-style-three > .selector.disable {
+    background-color: var(--selector-bg-disable);
+    cursor: not-allowed;
+}
+
+.down-icon {
+    background: url('../../../assets/Icons/ic_sprites.svg') no-repeat -185px -165px;
+	width: 11px;
+	height: 7px;
+}

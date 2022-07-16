@@ -1,0 +1,182 @@
+.header {
+    /* background-color: #000; */
+    justify-content: space-between;
+    padding: 5px 16px;
+    box-shadow: 0 0 5px #b1b1b1;
+}
+
+/* header left */
+.header__left {
+    cursor: pointer;
+}
+
+.header__left > h1.title {
+    color: var(--titlle-header-left-color);
+    cursor: text;
+}
+
+.help-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/Icons/ic_sprites.svg");
+    background-repeat: no-repeat;
+    background-position: -804px -295px;
+    cursor: pointer;
+}
+
+.header__help-icon {
+    margin-left: 8px;
+}
+
+/* header right */
+.header__right {
+    cursor: pointer;
+}
+
+.header__notify {
+    position: relative;
+}
+
+.dot-on-bell {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    background-color: var(--dot-on-bell);
+    width: 10px;
+    height: 10px;
+    top: 6px;
+    left: 20px;
+    border: 1px solid #fff;
+}
+
+.dot-on-bell.check {
+    display: none;
+}
+
+.party-wall {
+    background-color: var(--bg-party-wall);
+    width: 1px;
+    height: 28px;
+    /* background-color: #000; */
+    margin-left: 10px;
+    margin-right: 16px;
+}
+
+.header__user-name:hover h1 {
+    text-decoration: underline;
+}
+
+.header__user {
+    position: relative;
+}
+
+.header__user-name {
+}
+
+.down-icon {
+    background: url('../../assets/Icons/ic_sprites.svg') no-repeat -185px -165px;
+	width: 11px;
+	height: 7px;
+}
+
+.header__down-icon {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.header__user > .avatar {
+    height: 40px;
+    width: 40px;
+}
+
+.header__user > .avatar > .avatar-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/* user option */
+.header__user:hover .info-and-option-user {
+    display: block;
+}
+
+.info-and-option-user {
+    position: absolute;
+    content: "";
+    flex-direction: column;
+    top: 48px;
+    right: 0px;
+    padding-top: 18px;
+    /* height: 256px; */
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    border-radius: 0.25rem;
+    width: var(--width-user-option);
+    display: none;
+    cursor: default;    
+    z-index: 2;
+    /* overflow: hidden; */
+}
+
+.info-and-option-user::after {
+    position: absolute;
+    content: "";
+    top: -8px;
+    right: 75px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+}
+
+.info-and-option-user::before {
+    position: absolute;
+    content: "";
+    top: -24px;
+    right: 0;
+    width: 100%;
+    height: 23px;
+    background-color: transparent;
+}
+
+.info-and-option-user > .avatar {
+    height: 68px;
+    width: 68px;
+    margin: 0 auto 20px;
+}
+
+.info-and-option-user > .avatar > .avatar-icon {
+    height: 100%;
+    width: 100%;
+}
+
+.info__user {
+    flex-direction: column;
+}
+
+.info__user__position {
+    color: var(--user-position-color);
+    margin-top: 3px;
+    margin-bottom: 16px;
+}
+
+.seperate {
+    background-color: #f2f4f4;
+    height: 1px;
+    margin: 0 16px;
+}
+
+.logout-account {
+    padding: 15px 26px 12px 36px;
+    cursor: pointer;
+}
+
+.logout-account:hover {
+    background-color: var(--option-user-color);
+}
+
+.logout-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 16px;
+}

@@ -1,0 +1,16 @@
+.btn-style-two {
+    padding: 0 12px;
+    border: 1px solid var(--second-btn-bd);
+    color: var(--style-two-normal-text-color);
+    background-color: var(--second-bg-btn);
+}
+
+.btn-style-two:hover {
+    background-color: var(--second-bg-hover-btn);
+}
+
+.btn-style-two.disable {
+    background-color: var(--second-bg-btn);
+    color: var(--text-disable-color);
+    cursor: not-allowed;
+}

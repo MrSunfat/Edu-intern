@@ -1,0 +1,9 @@
+#app {
+    display: grid;
+    grid-template-columns: var(--menu-width) calc(100% - var(--menu-width));
+    height: 100vh;
+}
+
+#app.menu-no-expand {
+    grid-template-columns: var(--menu-width-no-expand) calc(100% - var(--menu-width-no-expand));
+}

@@ -1,0 +1,14 @@
+.plus-icon {
+    background: url('../../../assets/Icons/ic_sprites.svg') no-repeat -803px -515px;
+	width: 11px;
+	height: 11px;
+    margin-right: 8px;
+    display: none;
+}
+
+.plus-icon-hover {
+    background: url('../../../assets/Icons/ic_sprites.svg') no-repeat -819px -76px;
+	width: 13px;
+	height: 13px;
+    margin-right: 8px;
+}

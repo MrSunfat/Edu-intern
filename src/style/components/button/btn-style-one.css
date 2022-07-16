@@ -1,0 +1,17 @@
+.btn-style-one {
+    padding: 0 12px;
+    background-color: var(--main-bg-btn);
+    color: #fff;
+    border: none;
+}
+
+
+.btn-style-one:hover {
+    background-color: var(--main-bg-hover-btn);
+}
+
+.btn-style-one.disable {
+    background-color: var(--bg-btn-stye-disable);
+    color: var(--text-disable-color);
+    cursor: not-allowed;
+}

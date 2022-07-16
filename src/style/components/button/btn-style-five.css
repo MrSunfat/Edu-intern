@@ -1,0 +1,34 @@
+.content-icon {
+    background: url('../../../assets/Icons/ic_sprites.svg') no-repeat -10px -1188px;
+	width: 16px;
+	height: 16px;
+}
+
+.content-icon-disable {
+    background: url('../../../assets/Icons/ic_sprites.svg') no-repeat -434px -202px;
+	width: 16px;
+	height: 16px;
+    display: none;
+}
+
+.btn-style-five {
+    border: 1px solid var(--second-btn-bd);
+    background: #fff;
+    min-width: 0 !important;
+}
+
+.btn-style-five:hover {
+    background-color: var(--style-five-bg-hover);
+}
+
+.btn-style-five.disable {
+    cursor: not-allowed;
+}
+
+.btn-style-five.disable .content-icon {
+    display: none;
+}
+
+.btn-style-five.disable .content-icon-disable {
+    display: block;
+}
