@@ -9,7 +9,10 @@
           nameBtn="Thêm"
           type="primary-btn"
           :handleClick="handleOpenFormAddTeacher"
-        />
+          class="show-tooltip"
+        >
+          <tooltip-comp :contentTooltip="this.listTooltipContent.add" />
+        </base-btn>
         <base-btn class="export-icon" nameBtn="Xuất khẩu" type="second-btn" />
         <base-btn :urlIcon="urlMoreIcon" type="icon-btn" />
       </div>
@@ -24,6 +27,7 @@
       :class="{ show: !this.closePopupNotify }"
       v-on:closePopupNotify="handleClosePopupNotify"
     />
+    <base-toast v-bind="toastInfo" />
   </div>
 </template>
 
@@ -36,6 +40,7 @@ import TableTeachers from "../table/TableTeachers.vue";
 import FooterBarPagination from "../footer-bar/FooterBarPagination.vue";
 import PopupNotify from "../popup/PopupNotify.vue";
 import FormAddTeacher from "../form/FormAddTeacher.vue";
+import TooltipComp from "../common/tooltip/TooltipComp.vue";
 export default {
   name: "SystemPage",
   data() {
@@ -43,6 +48,16 @@ export default {
       urlMoreIcon: moreIcon,
       closeFormTeacher: false,
       closePopupNotify: true,
+      listTooltipContent: {
+        add: "Thêm cán bộ giáo viên",
+        delete: "Xóa giáo viên",
+        edit: "Sửa giáo viên",
+      },
+      toastInfo: {
+        titleToast: "Thông báo",
+        contentToast: "Đã gửi cho phụ huynh thành công!",
+        typeToast: "toast-fail",
+      },
     };
   },
   components: {
@@ -52,6 +67,7 @@ export default {
     FooterBarPagination,
     PopupNotify,
     FormAddTeacher,
+    TooltipComp,
   },
   methods: {
     /**

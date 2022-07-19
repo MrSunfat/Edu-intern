@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     handleCloseFormAddTeacher(data) {
-      console.log(data);
       this.closeFormAdd = data;
     },
   },

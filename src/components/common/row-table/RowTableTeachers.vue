@@ -61,14 +61,15 @@
     </td>
     <td class="subtitle-one">
       <div class="edit-and-delete-info-teacher d-flex">
-        <div class="edit__container fs-28 d-flex">
+        <div class="edit__container fs-28 d-flex show-tooltip">
           <img
             src="../../../assets/Icons/ic_Edit.png"
             alt="check-icon"
             class="edit__icon"
           />
+          <tooltip-comp :contentTooltip="this.listTooltip.edit" />
         </div>
-        <div class="delete__container fs-28 d-flex">
+        <div class="delete__container fs-28 d-flex show-tooltip">
           <img
             src="../../../assets/Icons/ic_Remove.png"
             alt="check-icon"
@@ -79,6 +80,7 @@
             alt="check-icon"
             class="remove__icon-hover"
           />
+          <tooltip-comp :contentTooltip="this.listTooltip.delete" />
         </div>
       </div>
     </td>
@@ -86,12 +88,19 @@
 </template>
 
 <script>
+import TooltipComp from "../tooltip/TooltipComp.vue";
 export default {
   name: "RowTableTeachers",
   data() {
     return {
-      // rowChecked: false,
+      listTooltip: {
+        edit: "Sửa",
+        delete: "Xóa",
+      },
     };
+  },
+  components: {
+    TooltipComp,
   },
   props: {
     teacher: Object,
@@ -114,62 +123,64 @@ export default {
 <style scoped>
 /* checkbox */
 .checkbox-input {
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
-.checkbox-input__icon-hover, .checkbox-input__icon-checked {
-    display: none;
+.checkbox-input__icon-hover,
+.checkbox-input__icon-checked {
+  display: none;
 }
 
 .checkbox-input:hover .checkbox-input__icon {
-    display: none;
+  display: none;
 }
 
 .checkbox-input:hover .checkbox-input__icon-hover {
-    display: block;
+  display: block;
 }
 
 .checkbox-input.active .checkbox-input__icon {
-    display: none;
+  display: none;
 }
 
 .checkbox-input.active .checkbox-input__icon-hover {
-    display: none;
+  display: none;
 }
 
 .checkbox-input.active .checkbox-input__icon {
-    display: none;
+  display: none;
 }
 
 .checkbox-input.active .checkbox-input__icon-checked {
-    display: block;
+  display: block;
 }
 
 tr .check {
-    text-align: center;
+  text-align: center;
 }
 
 tr:hover {
-    background-color: var(--hover-color) !important;
+  background-color: var(--hover-color) !important;
 }
 
 tr.checked {
-    background-color: var(--row-focus-color-on-grid-color) !important;
+  background-color: var(--row-focus-color-on-grid-color) !important;
 }
 
 .name-teacher {
-    color: var(--main-color);
+  color: var(--main-color);
 }
 
 /* icon */
 .edit__container {
-    justify-content: center;
+  justify-content: center;
 }
 
-.edit__container:hover, .delete__container:hover {
-    background-color: var(--bg-icon-hover);
-    border-radius: 50%;
+.edit__container:hover,
+.delete__container:hover {
+  background-color: var(--bg-icon-hover);
+  border-radius: 50%;
 }
 </style>

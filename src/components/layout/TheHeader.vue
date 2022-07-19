@@ -2,7 +2,9 @@
   <div class="header d-flex">
     <div class="header__left d-flex">
       <h1 class="title">Cán bộ, giáo viên</h1>
-      <div class="help-icon header__help-icon"></div>
+      <div class="help-icon header__help-icon show-tooltip">
+        <tooltip-comp contentTooltip="Trợ giúp" />
+      </div>
     </div>
     <div class="header__right d-flex">
       <div class="header__notify">
@@ -102,10 +104,14 @@
 </template>
 
 <script>
+import TooltipComp from "../common/tooltip/TooltipComp.vue";
 export default {
   name: "TheHeader",
   props: {
     userName: Object,
+  },
+  components: {
+    TooltipComp
   },
   computed: {
     formatPosition() {

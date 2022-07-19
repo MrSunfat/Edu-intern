@@ -6,6 +6,7 @@
     <div class="base-btn__text" v-show="validateNameBtn">
       {{ nameBtn }}
     </div>
+    <slot></slot>
   </button>
 </template>
 

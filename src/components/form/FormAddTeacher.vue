@@ -53,7 +53,12 @@
               :dbDropdown="dbDropdown"
               v-on:changeOption="handleChangeOption"
             />
-            <tag-comp />
+            <tag-comp
+              :listSubject="listSubject"
+              @selectSubject="handleSelectSubject"
+              @isCheckAll="isCheckAll"
+              @deleteSubject="deleteSubject"
+            />
           </div>
           <div class="inputs__main__two">
             <!-- <drop-down-one /> -->
@@ -110,6 +115,13 @@
             </div>
             <input-date v-show="showDayOff" />
           </div>
+          <tag-comp
+            :listSubject="listGroup"
+            @selectSubject="handleSelectSubject"
+            @isCheckAll="isCheckAll"
+            @deleteSubject="deleteSubject"
+            typeTag="lab"
+          />
         </div>
         <div class="inputs__btns mg-t-16">
           <base-btn
@@ -131,7 +143,6 @@
         <img src="../../assets/Icons/ic_X_2.png" alt="" class="close-icon" />
       </div>
     </div>
-    <toast-success :class="{ show: this.showToast.toastSuccess }" />
     <!-- <toast-fail :class="{ show: this.showToast.toastFail }" /> -->
   </div>
 </template>
@@ -141,14 +152,12 @@ import BaseBtn from "../common/button/BaseBtn.vue";
 import DropDownOne from "../input/DropDownOne.vue";
 import HLabelInput from "../input/horizontal/HLabelInput.vue";
 import InputDate from "../input/InputDate.vue";
-import TagComp from '../input/TagComp.vue';
-import ToastSuccess from "../toast-message/ToastSuccess.vue";
+import TagComp from "../input/TagComp.vue";
 export default {
   components: {
     HLabelInput,
     DropDownOne,
     InputDate,
-    ToastSuccess,
     BaseBtn,
     TagComp,
   },
@@ -157,7 +166,7 @@ export default {
     return {
       careerLevel: false,
       working: false,
-      showDayOff: false,
+      showDayOff: true,
       dbDropdown: {
         listSubjectGroup: [
           {
@@ -191,6 +200,50 @@ export default {
         toastSuccess: false,
         toastFail: false,
       },
+      listSubject: [
+        {
+          id: "Math",
+          name: "Toán",
+          selected: true,
+        },
+        {
+          id: "Physics",
+          name: "Vật lý",
+          selected: false,
+        },
+        {
+          id: "Chemistry",
+          name: "Hóa học",
+          selected: true,
+        },
+        {
+          id: "Bio",
+          name: "Sinh học",
+          selected: true,
+        },
+        {
+          id: "History",
+          name: "Lịch sử",
+          selected: true,
+        },
+      ],
+      listGroup: [
+        {
+          id: "math-lab",
+          name: "Phòng Toán-Lý",
+          selected: false,
+        },
+        {
+          id: "chemistry-lab",
+          name: "Phòng Hóa-Sinh",
+          selected: true,
+        },
+        {
+          id: "common-room",
+          name: "Kho phòng chung",
+          selected: true,
+        },
+      ],
     };
   },
   methods: {
@@ -269,6 +322,47 @@ export default {
      */
     handleFileInputAvatar() {
       this.$refs.filInputAvatar.click();
+    },
+    /**
+     * Tag Component
+     */
+    /**
+     * Xử lý khi chọn subject
+     */
+    handleSelectSubject(idOption) {
+      const idxOption = this.listSubject.findIndex(
+        (subject) => subject.id === idOption
+      );
+
+      this.listSubject[idxOption].selected =
+        !this.listSubject[idxOption].selected;
+    },
+    /**
+     * Xử lý khi nhấn check all
+     * Author: Tran Danh (18/7/2022)
+     */
+    isCheckAll(checkAll) {
+      if (!checkAll) {
+        for (let i = 0; i < this.listSubject.length; i++) {
+          this.listSubject[i].selected = true;
+        }
+      } else {
+        for (let i = 0; i < this.listSubject.length; i++) {
+          this.listSubject[i].selected = false;
+        }
+      }
+    },
+    /**
+     * Nhận sự kiện từ TagComp
+     * -> xét selected của subject đó = false
+     * AUthor: Tran Danh (18/7/2022)
+     */
+    deleteSubject(idSubject) {
+      for (let i = 0; i < this.listSubject.length; i++) {
+        if (this.listSubject[i].id === idSubject) {
+          this.listSubject[i].selected = false;
+        }
+      }
     },
   },
   beforeMount() {
